@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-class help_cog(commands.Cog):
+class help_cog(commands.Cog): # Help cog to provide information about bot commands
     def __init__(self, bot):
         self.bot = bot
         
@@ -24,7 +24,7 @@ class help_cog(commands.Cog):
         
         self.text_channel = []
         
-    @commands.Cog.listener()
+    @commands.Cog.listener() # Listener that triggers when the bot is ready
     async def on_ready(self):
         for guild in self.bot.guilds:
             for channel in guild.text_channels:
@@ -32,10 +32,10 @@ class help_cog(commands.Cog):
                 
         await self.send_to_all(self.help_message)
         
-    async def send_to_all(self, message):
+    async def send_to_all(self, message): # Function to send a message to all text channels
         for text_channel in self.text_channel_text:
             await text_channel.send(message)
             
-    @commands.command(name='help', help="Shows all bot commands", aliases=['h'])
+    @commands.command(name='help', help="Shows all bot commands", aliases=['h']) # Command to show all bot commands
     async def help(self,ctx):
         await ctx.send(self.help_message)
