@@ -27,6 +27,6 @@ async def on_ready():
     
 async def main():
     await setup()
-    await bot.start('MjUwMDUwOTUwNTUzNzk2NjA4.GqMGVx.wEyCg_FbFNIzX8tMEbnDxtHqcTEj_NSkBCPx2o')
+    await bot.start('Put your discord token here')
 
 asyncio.run(main())
